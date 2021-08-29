@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+		<meta name="description" content="о чем страница">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="format-detection" content="telephone=no">
+		<!--meta(name="viewport" content="width=570,   maximum-scale=1 , user-scalable=0, shrink-to-fit=no")-->
+		<!--script.-->
+		<!--	let viewport = document.querySelector("meta[name=viewport]");-->
+		<!--	var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);-->
+		<!--	if (is_safari) {-->
+		<!--		//- alert(navigator.userAgent);-->
+		<!--		function w() {-->
+		<!--			this.outerWidth > 570-->
+		<!--							? viewport.content = "width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"-->
+		<!--							: viewport.content = "width=570,   maximum-scale=1 , user-scalable=0, shrink-to-fit=no"-->
+		<!--			//- alert(this.outerWidth + ', '+  viewport.content);-->
+		<!--		}-->
+		<!---->
+		<!--		w();-->
+		<!--		window.addEventListener('resize', () => w(), {passive: true});-->
+		<!--	}-->
+		<!--//--->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,  shrink-to-fit=no">
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+		<!--<link rel="preconnect" href="https://unpkg.com">-->
+		<!--<link rel="preconnect" href="https://cdn.jsdelivr.net">-->
+		<link href="libs/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+	</head>
+	<body class="main-page" data-bg="01.png">
+		<div class="main-wrapper">
+			<div class="menu-mobile menu-mobile--js d-lg-none">
+				<div class="toggle-menu-mobile toggle-menu-mobile--js"><span></span>
+				</div>
+				<div class="menu-mobile__inner">
+					<a class="menu-mobile__logo mb-4" href="/"><img loading="lazy" src="img/svg/logo.svg" alt=""/>
+					</a>
+					<ul class="menu">
+						<li class="menu-item"><a href="#header">О проекте</a></li>
+						<li class="menu-item"><a href="#sAbout">Обо мне</a></li>
+						<li class="menu-item"><a href="#sPlan">План проекта</a></li>
+						<li class="menu-item"><a href="#sForm">Контакты</a></li>
+					</ul>
+					<div class="soc-row row">
+						<div class="col-auto">
+							<a class="soc-row__item" href="#"><img loading="lazy" src="img/svg/soc-inst.svg" alt=""/>
+							</a>
+						</div>
+						<div class="col-auto">
+							<a class="soc-row__item" href="#"><img loading="lazy" src="img/svg/soc-fb.svg" alt=""/>
+							</a>
+						</div>
+						<div class="col-auto">
+							<a class="soc-row__item" href="#"><img loading="lazy" src="img/svg/soc-tg.svg" alt=""/>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--  мобильное меню-->
+			<!-- start header-->
+			<header class="header" id="header">
+				<!-- start top-nav-->
+				<div class="top-nav top-nav--js block-with-lazy">
+					<div class="container">
+						<div class="top-nav__row row">
+							<div class="top-nav__soc-col col d-none d-lg-block">
+								<div class="soc-row row">
+									<div class="col-auto">
+										<a class="soc-row__item" href="#"><img loading="lazy" src="img/svg/soc-inst.svg" alt=""/>
+										</a>
+									</div>
+									<div class="col-auto">
+										<a class="soc-row__item" href="#"><img loading="lazy" src="img/svg/soc-fb.svg" alt=""/>
+										</a>
+									</div>
+									<div class="col-auto">
+										<a class="soc-row__item" href="#"><img loading="lazy" src="img/svg/soc-tg.svg" alt=""/>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col col-lg-auto order-first order-xl-0">
+								<a class="top-nav__logo" href="/"><img loading="lazy" src="img/svg/logo.svg" alt=""/>
+								</a>
+							</div>
+							<div class="col-auto col-xl d-none d-md-block">
+								<ul class="menu">
+									<li class="menu-item"><a href="#header">О проекте</a></li>
+									<li class="menu-item"><a href="#sAbout">Обо мне</a></li>
+									<li class="menu-item"><a href="#sPlan">План проекта</a></li>
+									<li class="menu-item"><a href="#sForm">Контакты</a></li>
+								</ul>
+							</div>
+							<div class="col-auto d-md-none">
+								<div class="toggle-menu-mobile toggle-menu-mobile--js"><span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end top-nav
+				//soc-
+				
+				-->
+			</header>
+			<!-- end header-->
+			<div class="pt-5"></div>
+			<div class="pt-5"></div>
+			<div class="pt-5"></div>
+			<div class="section">
+				<div class="container">
+					<div class="row gx-3 gy-3">
+						<div class="col-auto"><a class="btn btn-danger link-modal-js" href="#modal-adult">modal-adult</a></div>
+						<div class="col-auto"><a class="btn btn-danger link-modal-js" href="#modal-reg">modal-reg</a></div>
+						<div class="col-auto"><a class="btn btn-danger link-modal-js" href="#modal-thanks">modal-thanks</a></div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<div class="row align-items-center align-items-xl-start gy-4">
+						<div class="col-md-auto col-xl">
+							<ul class="menu">
+								<li class="menu-item"><a href="#header">О проекте</a></li>
+								<li class="menu-item"><a href="#sAbout">Обо мне</a></li>
+								<li class="menu-item"><a href="#sPlan">План проекта</a></li>
+								<li class="menu-item"><a href="#sCert">Сертификат винодела</a></li>
+								<li class="menu-item"><a href="#sForm">Контакты</a></li>
+							</ul>
+						</div>
+						<div class="col-md col-xl-auto order-first order-xl-0">
+							<a class="footer__logo" href="/"><img loading="lazy" src="img/svg/logo-white.svg" alt=""/>
+							</a>
+						</div>
+						<div class="col d-none d-xl-block"></div>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!--  start modals-->
+		<div class="modal-thanks modal-win text-center" id="modal-thanks" style="display: none">
+			<div class="modal-thanks__img"><img loading="lazy" src="img/svg/tanks-img.svg" alt=""/>
+			</div>
+			<h4 class="modal-thanks__title">Приятно познакомиться!
+			</h4>
+			<div class="modal-thanks__descr">Спасибо за Ваш интерес к проекту. В ближайщее время мы с Вами свяжемся
+			</div>
+		</div>
+		<!-- #modal-thanks-->
+		<div class="modal-adult modal-win text-center" id="modal-adult" style="display: none">
+			<div class="modal-adult__content">
+				<div class="modal-adult__img"><img loading="lazy" src="img/svg/adult-img.svg" alt=""/>
+				</div>
+				<h4 class="modal-adult__title">Я подтверждаю, что мне<br/>исполнилось 18 лет
+				</h4>
+				<div class="modal-adult__descr">Для продолжения просмотра Вы должны быть совершеннолетним.
+				</div>
+				<label class="modal-adult__check-box">
+					<input class="adult-chek-js invisible" type="checkbox" checked="checked"/><span class="square"></span><span class="txt">Подтверждаю</span>
+				</label>
+			</div>
+			<button class="modal-adult__foot-btn modal-close-js" type="button">Перейти на сайт
+			</button>
+		</div>
+		<!-- #modal-adult-->
+		<div class="modal-reg modal-win text-center" id="modal-reg" style="display: none">
+			<div class="row gx-0 gy-0">
+				<div class="col-md">
+					<div class="form-wrap">
+						<form>
+							<input type="hidden" name="message-from" value="Регистрация сертификата"/>
+							<input name="example-input-field" type="hidden"/>
+							<input class="order" name="order" type="hidden" value="Заявка  с сайта"/>
+							<input class="utm_source" name="utm_source" type="hidden"/>
+							<input class="utm_term" name="utm_term" type="hidden"/>
+							<input class="utm_medium" name="utm_medium" type="hidden"/>
+							<input class="utm_campaign" name="utm_campaign" type="hidden"/>
+							<div class="form-wrap__steps">
+								<div class="form-wrap__step modal-reg-step-js active">
+									<div class="form-wrap__step-content">
+										<div class="form-wrap__icon-row row justify-content-center">
+											<div class="col-auto">
+												<div class="form-wrap__icon current">
+													<svg class="icon icon-modal-reg-1 ">
+														<use xlink:href="img/svg/sprite.svg#modal-reg-1"></use>
+													</svg>
+												</div>
+											</div>
+											<div class="col-auto">
+												<div class="form-wrap__icon next">
+													<svg class="icon icon-modal-reg-2 ">
+														<use xlink:href="img/svg/sprite.svg#modal-reg-2"></use>
+													</svg>
+												</div>
+											</div>
+										</div>
+										<h4 class="form-wrap__title">Регистрация сертификата
+										</h4>
+										<div class="form-wrap__descr mb-5">Введите свои персональные данные
+										</div>
+										<div class="form-wrap__inputs"><input class="form-wrap__input form-wrap__input--regular step-inp-js form-control" placeholder="Как к вам обращаться" type="text" name="name" required="required"/><input class="form-wrap__input form-wrap__input--regular step-inp-js form-control" placeholder="Ваш Е-mail" type="email" name="email" required="required"/><input class="form-wrap__input form-wrap__input--regular step-inp-js form-control" placeholder="Номер телефона" type="tel" name="tel" required="required"/>
+										</div>
+										<div class="form-wrap__no-cert"><span class="me-1">Нет сертификата?</span><a class="modal-close-js scroll-link" href="#sCert">Купить</a>
+										</div>
+									</div>
+									<button class="form-wrap__btn form-wrap__btn--next go-next-step-js" type="button">Далее
+									</button>
+								</div>
+								<div class="form-wrap__step modal-reg-step-js">
+									<div class="form-wrap__step-content">
+										<div class="form-wrap__icon-row row justify-content-center">
+											<div class="col-auto">
+												<div class="form-wrap__icon done">
+													<svg class="icon icon-modal-reg-1 ">
+														<use xlink:href="img/svg/sprite.svg#modal-reg-1"></use>
+													</svg>
+												</div>
+											</div>
+											<div class="col-auto">
+												<div class="form-wrap__icon current">
+													<svg class="icon icon-modal-reg-2 ">
+														<use xlink:href="img/svg/sprite.svg#modal-reg-2"></use>
+													</svg>
+												</div>
+											</div>
+										</div>
+										<h4 class="form-wrap__title">Регистрация сертификата
+										</h4>
+										<div class="form-wrap__descr mb-5">Введите свои персональные данные
+										</div>
+										<div class="form-wrap__descr mb-2">Номер сертификата
+										</div><input class="form-wrap__input form-wrap__input--c-num step-inp-js form-control number-mask-js" data-mask="№9999" pattern="№[0-9]{4}" type="text" name="cert-num" placeholder="№0000" required="required"/><input class="form-wrap__input form-wrap__input--c-code step-inp-js form-control" placeholder="Секретный скреч-код" type="text" name="cert-code" required="required"/>
+										<div class="form-wrap__no-cert"><span class="me-1">Нет сертификата?</span><a class="modal-close-js scroll-link" href="#sCert">Купить</a>
+										</div>
+									</div>
+									<button class="form-wrap__btn form-wrap__btn--reg" type="submit">зарегистрировать
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-auto d-none d-lg-block">
+					<div class="modal-reg__img"><img loading="lazy" src="img/@2x/modal-reg.png" alt=""/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end modals-->
+		<script src="libs/jquery/jquery.min.js"></script>
+		<script src="libs/@fancyapps/ui/fancybox.umd.js"></script>
+		<script src="libs/swiper/swiper-bundle.min.js"></script>
+		<script src="libs/inputmask/inputmask.min.js"></script>
+		<!--script(src="libs/nanogram.js/nanogram.esm.js")-->
+		<!--script(src="libs/nanogram.js/nanogram.cjs.js")-->
+		<!--<script src="https://unpkg.com/nanogram.js@3.0.3/dist/nanogram.iife.js"></script>--><script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="js/react-cart.js" type="text/babel"></script>
+		<script src="js/libs.js"></script>
+		<script src="js/common.js"></script>
+	</body>
+</html>

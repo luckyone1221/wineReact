@@ -1,0 +1,32 @@
+$default-font: "DIN2014";
+$mono: "Merriweather";
+$mono2: "Bodoni";
+$mono3: "";
+// $file-form: ($file-formats: woff2 woff ttf);
+$addr: '../fonts/';
+$file-format: woff2;
+
+
+// If font from googlefont, next lines remove
+@include font-face ($default-font, $addr + "DIN2014/DIN2014-Light", 300, $file-formats: $file-format);
+@include font-face ($default-font, $addr + "DIN2014/DIN2014-Regular", 400, $file-formats: $file-format);
+@include font-face ($default-font, $addr + "DIN2014/DIN2014-DemiBoldItalic", 600, $file-formats: $file-format, $style: italic);
+@include font-face ($default-font, $addr + "DIN2014/DIN2014-Bold", 700, $file-formats: $file-format);
+
+//
+@include font-face ($mono2, $addr + "Bodoni/BodoniFLF-Bold", 700, $file-formats: $file-format);
+
+//
+@include font-face ($mono3, $addr + "MuseoSansCyrl/MuseoSansCyrl-500", 500, $file-formats: $file-format);
+@include font-face ($mono3, $addr + "MuseoSansCyrl/MuseoSansCyrl-700", 700, $file-formats: $file-format);
+
+// font-weight helper:
+// 100 Thin
+// 200 Extra Light
+// 300 Light
+// 400 Normal
+// 500 Medium
+// 600 Semi Bold
+// 700 Bold
+// 800 Extra Bold
+// 900 Ultra Bold

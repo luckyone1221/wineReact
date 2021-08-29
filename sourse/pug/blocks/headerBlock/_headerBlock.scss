@@ -1,0 +1,76 @@
+// start .headerBlock
+.headerBlock {
+	@include mt();
+
+	min-height: calc(var(--vh, 1vh) * 100 - var(--shift-top) * 1.5);
+	@include media-breakpoint-up(xl){
+		min-height: calc(var(--vh, 1vh) * 100);
+	}
+
+	padding-top: rem(150);
+	@include media-breakpoint-up(xl){
+		padding-top: rem(200);
+	}
+	@include media-breakpoint-up(base){
+		padding-top: rem(245);
+	}
+	padding-bottom: calc(var(--header-h) + var(--sPT));
+
+
+	--sPT: #{rem(91)};
+	--sPB: #{rem(65)};
+	--sTPB: #{rem(31)};
+
+	position: relative;
+	z-index: 1;
+
+	&__container{
+		@include media-breakpoint-up(base){
+			max-width: calc(100% - #{rem(60)} * 2 + #{$container-padding-x} * 2)!important;
+		}
+	}
+	&__bg{
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	//-
+	.section-title{
+		max-width: rem(853);
+		margin: 0 auto;
+
+		color: $milk;
+		h1, h2{
+			font-weight: 400;
+			color: $milk;
+		}
+
+		p{
+			max-width: 91%;
+			margin: 0 auto;
+
+			font-size: rem(20);
+			line-height: 1.3;
+		}
+	}
+
+	&__soc-col{
+		@include media-breakpoint-up(xl){
+			width: calc(var(--bs-gutter-x) + #{rem(30)});
+		}
+	}
+	&__{}
+	&__{}
+}
+
+// end.headerBlock

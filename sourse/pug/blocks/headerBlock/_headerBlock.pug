@@ -1,0 +1,15 @@
+mixin headerBlock()
+	// start headerBlock
+	+b.headerBlock.section#headerBlock&attributes(attributes)
+		+e.bg
+			img(loading="lazy" src="img/@2x/headerBl-bg.jpg" alt="")
+		+e.container.container
+			+e.row.row.align-items-center
+				+e.soc-col.col-xl-auto.d-none.d-xl-block
+				.col-xl
+					+b.section-title.text-center
+						h1 На вершине горного плато
+						p недалеко от село Ароматное идут работы по запуску виноградника и винодельческого проекта в самом эпицентре лавандовых полей. Прованс в Крыму - что может быть более поэтичным для места под винодельню? А пока мы будем иследовать ароматы, вкусы и стили вина, писать об этом и общаться.
+				+e.soc-col.col-xl-auto
+					+headerSocRow()(class="justify-content-center")
+	// end headerBlock

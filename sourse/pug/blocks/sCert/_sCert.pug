@@ -1,0 +1,133 @@
+mixin sCert(data)
+	// start sCert
+	+b.SECTION.sCert.section#sCert&attributes(attributes)
+		+b.gray-txt Сертификат винодела
+		+e.container.container
+			+e.top-row.row.gy-5.align-items-center
+				+e.left-col.col-xl-auto
+					+b.section-title
+						h2 Сертификат винодела
+					+e.descr-title Описание
+					+e.descr
+						p С помощью сертификатов мы сможем принять ваше участие и поддержку проекта, а так же сформировать сообщество прекрасных людей, которые любят вино и ценят труд.
+						p.mb-0 Покупая сертификат вы получите несколько приятных бонусов:
+						ul
+							//-
+							li членство в клубе
+							li специальную пожизненную скидку на вино
+							li приоритетный доступ на самые важные мероприятия - сбор урожая и праздник вина
+						p Можно купить лично себе или в подарок, сделать корпоративным презентом для коллег, сотрудников, партнеров или клиентов.
+				.col
+					+e.already-box
+						+e.a-txt
+							p Уже приобрели сертификат?
+							p Вы можете его зарегистрировать!
+						+e.a-btn.link-modal-js(href="#modal-reg")
+							span Перейти к регистрации
+							+e.a-icon
+								img(loading="lazy" src='img/svg/long-arrow-right.svg' alt="")
+				.col-auto.align-self-start
+					+e.share-btn(href="#")
+						img(loading="lazy" src="img/svg/share.svg" alt="")
+		.row.gy-0.gx-0
+			+sCertItem({
+				imgNum: 1,
+				priceVal: '3000',
+				itemName: 'Сертификат винодела',
+				itemNameId: 'prodItem1',
+				descr: '1 бутылка',
+				smTxt: `Дает право на <b class="text-danger">получение 1 бутылКИ вина</b> первого урожая виноградника “aromatnoe” / бесплатную экскурсию членство в клубе / участие в мероприятиях виноградника и оформления именной лозы на винограднике.`,
+			})
+			+sCertItem({
+				imgNum: 2,
+				priceVal: `5 000`,
+				itemName: 'Сертификат винодела',
+				itemNameId: 'prodItem2',
+				descr: '3 бутылки',
+				smTxt: `Дает право на <b class="text-danger">получение 3 бутылОК вина</b> первого урожая виноградника “aromatnoe” / бесплатную экскурсию членство в клубе / участие в мероприятиях виноградника и оформления именной лозы на винограднике. `,
+			})
+			+sCertItem({
+				imgNum: 3,
+				priceVal: `10 000`,
+				itemName: 'Сертификат винодела',
+				itemNameId: 'prodItem3',
+				descr: 'ящик (6 бутылок)',
+				smTxt: `Дает право на <b class="text-danger">получение 6 бутылОК (1 ЯЩИКА) вина</b> первого урожая виноградника “aromatnoe” / бесплатную экскурсию членство в клубе / участие в мероприятиях виноградника и оформления именной лозы на винограднике. `,
+			})
+			//-
+			+sCertItem({
+				imgNum: 4,
+				priceVal: `18 000`,
+				itemName: 'Сертификат винодела',
+				itemNameId: 'prodItem4',
+				descr: '3 ящика (18 бутылок)',
+				smTxt: `Дает право на <b class="text-danger">получение 18 бутылок (3 ящика) вина</b> первого урожая виноградника “aromatnoe” / бесплатную экскурсию членство в клубе / участие в мероприятиях виноградника и оформления именной лозы на винограднике. `,
+			})
+			+sCertItem({
+				imgNum: 5,
+				itemName: 'Футболка “WINE” черная',
+				itemNameId: 'prodItem5',
+				priceVal: `2 000`,
+			})(
+				data-checked-radio='M'
+				data-radio-options="S,M,L,XL"
+			)
+				+e.black-title Футболка “WINE” ЧЕРНАЯ
+				+e.size-txt Размер:
+				+e.radio-row.row.justify-content-center
+					+sCertRadioItem('S', 'radio-group')(class="inp-radio-js")
+					+sCertRadioItem('M', 'radio-group')(class="inp-radio-js" checked)
+					+sCertRadioItem('L', 'radio-group')(class="inp-radio-js")
+					+sCertRadioItem('XL', 'radio-group')(class="inp-radio-js")
+			+sCertItem({
+				imgNum: 6,
+				itemNameId: 'prodItem6',
+				itemName: 'День на лавандовой ферме',
+				priceVal: `2 000`,
+			})
+				+e.sm-txt.rm-cont-js
+					p.rm-visible-js
+						| Проведите удивительный день на лавандовой
+						br
+						| ферме всей семьей! Вы познакомитесь с основателями хозяйства, узнаете про 18 сортов лаванды, лавандина и принципах сухоцветной флористики. вас ждет мастер-класс по работе с серпом, вы научитесь нарезать цветы и сможете...
+					p.rm-hidden-js
+						| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda atque deserunt dolorem nemo, nesciunt nihil obcaecati praesentium ratione vero.
+					+e.read-more.rm-btn-js
+						span ПОДРОБНЕЕ
+						span Свернуть
+	// end sCert
+
+mixin sCertRadioItem(txt, name)
+	.col-auto
+		+in-c('radio', '', name, txt)&attributes(attributes)
+			span.circle=txt
+
+mixin sCertItem(data)
+	.col-md-6.col-lg-4
+		+b.prod-item--js.text-center(
+				data-name=data.itemName
+				data-amount="1"
+				data-descr=data.descr
+				data-price=data.priceVal
+				id=data.itemNameId
+			)&attributes(attributes)
+			+e.img
+				img(loading='lazy' src=`img/@2x/prod-item-${data.imgNum}.png` alt="")
+			+e.descr-bl
+				if block
+					block
+				else
+					+e.sm-txt!=data.smTxt
+			+e.price
+				b=data.priceVal
+				|
+				| p.
+			+e.controll-bl
+				+e.c-row.row
+					.col-auto
+						+e.controll
+							+e.c-btn--min.min-btn-js(type="button") -
+							+e.INPUT.input.form-control.amount-inp-js(type="number" min="1" max="99" value="1")
+							+e.c-btn--plus.plus-btn-js(type="button") +
+					.col
+						+e.add-btn.add-btn-js(type="button") Добавить в корзину

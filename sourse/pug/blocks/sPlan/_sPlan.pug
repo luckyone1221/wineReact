@@ -1,0 +1,29 @@
+mixin sPlan(data)
+	// start sPlan
+	+b.SECTION.sPlan.section#sPlan&attributes(attributes)
+		+e.bg
+			img(loading="lazy" src='img/@2x/sPlan-bg.png' alt="")
+		+e.container.container
+			+b.section-title.text-center
+				h2 План проекта
+			+e.row.row.justify-content-center
+				+sPlanItem('1.svg', 'Посадка', '2021', `Посажено <br> 3 клетки / 2,5 гектара / 11 332 лозы`)
+				+sPlanItem('2.png', 'Туризм', '2022')
+				+sPlanItem('3.svg', 'Первый урожай', '2023')
+				+sPlanItem('4.png', 'Первое белое вино', '2024', '(5 000 бут)')
+				+sPlanItem('5.svg', 'Первое красное вино', '2025', '(3 000 бут)')
+			//sPlan-
+	// end sPlan
+
+mixin sPlanItem(imgEnd, title, year, descr)
+	+e.col.col-md-4.col-xl-auto
+		+e.item.text-md-center.set-active-class-js(data-year=year)
+			+e.row.row.align-items-center
+				.col-auto.col-md-12
+					+e.img
+						img(loading="lazy" src=`img/svg/sPlan-${imgEnd}` alt="")
+				.col.col-md-12
+					+e.year=year
+					+e.title=title
+					if descr
+						+e.descr!=descr

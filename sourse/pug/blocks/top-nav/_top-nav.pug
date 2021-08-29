@@ -1,0 +1,39 @@
+mixin mob-mnu()
+	+b.menu-mobile--js.d-lg-none
+		+b.toggle-menu-mobile--js
+			span
+		+e.inner
+			+e.logo.mb-4(href="/")
+				img(loading="lazy" src="img/svg/logo.svg" alt="")
+			+mnu()
+			+headerSocRow()
+	//  мобильное меню
+
+mixin top-nav() 
+	// start top-nav
+	+b.top-nav--js.block-with-lazy
+		.container
+			+e.row.row
+				+e.soc-col.col.d-none.d-lg-block
+					+headerSocRow()
+				.col.col-lg-auto.order-first.order-xl-0
+					+e.logo(href="/")
+						img(loading="lazy" src="img/svg/logo.svg" alt="")
+				.col-auto.col-xl.d-none.d-md-block
+					+mnu()
+				.col-auto.d-md-none
+					+b.toggle-menu-mobile--js
+						span
+	// end top-nav
+		//soc-
+
+mixin headerSocRow(mod='')
+	+b.soc-row.row&attributes(attributes)
+		+headerSocRowItem('inst', mod)
+		+headerSocRowItem('fb', mod)
+		+headerSocRowItem('tg', mod)
+
+mixin headerSocRowItem(imgName, mod='')
+	.col-auto
+		+e.item(href="#")
+			img(loading="lazy" src=`img/svg/soc${mod}-${imgName}.svg` alt="")

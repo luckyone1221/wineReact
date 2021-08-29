@@ -1,0 +1,27 @@
+mixin sSlider(data)
+	// start sSlider
+	+b.sSlider.section#sSlider&attributes(attributes)
+		+e.container.container
+			+e.slider-wrap
+				.swiper-container.sSlider-slider-js
+					.swiper-wrapper
+						+sSliderSlide(1)
+						+sSliderSlide(2)
+						+sSliderSlide(3)
+						+sSliderSlide(3)
+						+sSliderSlide(3)
+						+sSliderSlide(3)
+						+sSliderSlide(3)
+					+e.pugin-row.row.align-items-center
+						+e.pugin-col.col-auto
+							.swiper-pagination
+						.col-auto
+							.swiper-next
+								img(loading="lazy" src='img/svg/arrow-right.svg' alt="")
+
+	// end sSlider
+
+mixin sSliderSlide(imgNum)
+	.swiper-slide
+		+e.img(href=`img/@2x/sSlider-${imgNum}.jpg` data-fancybox="sSlider")
+			img(loading="lazy" src=`img/@2x/sSlider-${imgNum}.jpg` alt="")

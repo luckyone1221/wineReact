@@ -1,0 +1,38 @@
+mixin sSoc(data)
+	// start sSoc
+	+b.SECTION.sSoc--js.section#sSoc&attributes(attributes)
+		+b.gray-txt Instagram
+		+e.container.container
+			+e.row.row.align-items-center.align-items-base-start.gy-5
+				.col-lg-auto
+					+b.section-title
+						h2 Instagram
+						p Еще больше в моем блоге
+						a(href="#") @aromatnoe
+				+e.slider-col.col-lg-auto.ms-auto
+					+e.slider-wrap
+						.swiper-container.sSoc-slider-js
+							.swiper-wrapper
+								-for(var i =0; i < 5; i++)
+									+sSocSlide()
+						+arrow()
+						.swiper-pagination
+	// end sSoc
+mixin sSocSlide()
+	.swiper-slide
+		+e.item
+			+e.img(href="#")
+				img(loading="lazy" src=`img/@2x/soc-img.jpg` alt="")
+			+e.descr Что мне больше всего нравится в этой работе?
+			+e.hash-tags
+				a(href="#") #виноградники
+				a(href="#") #крым
+			+e.c-icons-row.row
+				+sSocIcon('like')
+				+sSocIcon('comment')
+				+sSocIcon('share')
+
+mixin sSocIcon(imgName)
+	.col-auto
+		+e.c-icon(href="#")
+			img(loading="lazy" src=`img/svg/c-icon-${imgName}.svg` alt="")

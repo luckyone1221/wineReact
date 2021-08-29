@@ -1,0 +1,27 @@
+//- WP menu
+mixin mnu()
+	-
+		var nav= { 
+			"О проекте":"#header",
+			"Обо мне":"#sAbout",
+			"План проекта":"#sPlan",
+			"Контакты":"#sForm",
+			}
+	ul.menu
+		each linkPatch, linkName in nav
+			li.menu-item: a(href=linkPatch)= linkName
+
+//- menu
+
+mixin mnu2()
+	-
+		var nav= {
+			"О проекте": "#header",
+			"Обо мне": "#sAbout",
+			"План проекта": "#sPlan",
+			"Сертификат винодела":"#sCert",
+			"Контакты": "#sForm",
+		}
+	ul.menu
+		each linkPatch, linkName in nav
+			li.menu-item: a(href=linkPatch)= linkName

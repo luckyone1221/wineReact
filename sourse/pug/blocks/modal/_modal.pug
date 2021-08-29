@@ -1,0 +1,74 @@
+mixin modal()
+	//  start modals
+	+b.modal-thanks.modal-win.text-center(id="modal-thanks" style="display: none" )
+		+e.img
+			img(loading="lazy" src="img/svg/tanks-img.svg" alt="")
+		+e.H4.title Приятно познакомиться!
+		+e.descr Спасибо за Ваш интерес к проекту. В ближайщее время мы с Вами свяжемся
+	// #modal-thanks
+	+b.modal-adult.modal-win.text-center(id="modal-adult" style="display: none")
+		+e.content
+			+e.img
+				img(loading="lazy" src="img/svg/adult-img.svg" alt="")
+			+e.H4.title
+				| Я подтверждаю, что мне
+				br
+				| исполнилось 18 лет
+			+e.descr Для продолжения просмотра Вы должны быть совершеннолетним.
+			+e.LABEL.check-box
+				input.adult-chek-js.invisible(type="checkbox" checked)
+				span.square
+				span.txt Подтверждаю
+		+e.foot-btn.modal-close-js(type="button") Перейти на сайт
+	// #modal-adult
+	+b.modal-reg.modal-win.text-center(id="modal-reg" style="display: none")
+		.row.gx-0.gy-0
+			.col-md
+				+form-wrap('Регистрация сертификата')
+					+e.steps
+						+modalRegContent({
+							addClasses: 'active',
+							step1Classes: 'current',
+							step2Classes: 'next',
+							nextBtn: true,
+						})
+							+e.descr.mb-5 Введите свои персональные данные
+							+e.inputs
+								+e.INPUT.input--regular.step-inp-js.form-control(placeholder="Как к вам обращаться" type="text" name="name" required)
+								+e.INPUT.input--regular.step-inp-js.form-control(placeholder="Ваш Е-mail" type="email" name="email" required)
+								+e.INPUT.input--regular.step-inp-js.form-control(placeholder="Номер телефона" type="tel" name="tel" required)
+						+modalRegContent({
+							addClasses: '',
+							step1Classes: 'done',
+							step2Classes: 'current',
+							regBtn: true,
+						})
+							+e.descr.mb-5 Введите свои персональные данные
+							+e.descr.mb-2 Номер сертификата
+							+e.INPUT.input--c-num.step-inp-js.form-control.number-mask-js(data-mask="№9999" pattern="№[0-9]{4}" type="text" name="cert-num" placeholder='№0000' required)
+							+e.INPUT.input--c-code.step-inp-js.form-control(placeholder="Секретный скреч-код" type="text" name="cert-code" required)
+			.col-md-auto.d-none.d-lg-block
+				+e.img
+					img(loading="lazy" src="img/@2x/modal-reg.png" alt="")
+	// end modals
+
+mixin modalRegContent(data)
+	+e.step.modal-reg-step-js(class=data.addClasses)
+		+e.step-content
+			+e.icon-row.row.justify-content-center
+				+modalRegStep(1, data.step1Classes)
+				+modalRegStep(2, data.step2Classes)
+			+e.H4.title Регистрация сертификата
+			block
+			+e.no-cert
+				span.me-1 Нет сертификата?
+				a.modal-close-js.scroll-link(href="#sCert") Купить
+		if data.nextBtn
+			+e.btn--next.go-next-step-js(type="button") Далее
+		if data.regBtn
+			+e.btn--reg(type="submit") зарегистрировать
+
+mixin modalRegStep(imgNum, addClasses='')
+	.col-auto
+		+e.icon(class=addClasses)
+			+icon(`modal-reg-${imgNum}`)

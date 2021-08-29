@@ -1,0 +1,59 @@
+mixin sCart(data)
+	// start sCart
+	+b.sCart.section#sCart&attributes(attributes)
+		+e.container.container
+			+e.main-row.row.gy-5
+				+e.left-col.col-lg-7.col-xl-6
+					+e.H4.title Моя корзина:
+					+e.items.cart-items-js
+						//-
+							//+sCartItem({
+							//	price: '10 000',
+							//	name: 'Сертификат винодела',
+							//	descr: 'ящик (6 бутылок)',
+							//})
+							//+sCartItem({
+							//	price: '5 000',
+							//	name: 'Сертификат винодела',
+							//	descr: '3 бутылки',
+							//})
+				+e.right-col.col-lg-5.col-xl-6
+					+e.H4.title--mb-alt Персональная информация
+					+form-wrap('Корзина')
+						.hidden-inputs-js.d-none
+							input(type="hidden" value="" class="cart-inp-js" name="cart")
+						+e.inputs
+							+input('E-mail', 'email')(required)
+							+input('Ваше имя', 'text', undefined, 'name')(required)
+							+input('+7 (999) 999 99 99 ', 'tel', undefined, 'tel')(required)
+						.text-center
+							+e.pay-btn(type="submit") ОПЛАТИТЬ
+	// end sCart
+
+mixin inp3(ph, type, val='', name="name1213")
+	.label
+		+e.INPUT.input.form-control.has-ph-js(type=type name=name)&attributes(attributes)
+		+e.SPAN.l-title=ph
+		block
+
+mixin sCartItem(data)
+	+e.item
+		+e.i-row.row.align-items-center.gy-3
+			.col-auto
+				+e.num
+			.col
+				+e.name=data.name
+				+e.descr=data.descr
+			.col-12.m-0.d-md-none
+			.col.col-md-auto
+				+e.control
+					+e.btn--minus(type="button") -
+					+e.INPUT.input.form-control(type="text" value="1")
+					+e.btn--plus(type="button") +
+			.col-auto
+				+e.price
+					b=data.price
+					|
+					| р.
+			.col-auto
+				+e.remove-btn(type="button") +

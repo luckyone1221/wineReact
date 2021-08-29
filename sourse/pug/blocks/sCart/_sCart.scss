@@ -1,0 +1,349 @@
+// start .sCart
+.sCart {
+	background-color: $danger;
+	color: $white;
+	h1,h2,h3,h4{
+		color: $white;
+	}
+
+	--sPT: #{rem(80)};
+	--sPB: #{rem(69)};
+	--sTPB: #{rem(45)};
+	&__container{
+		@include media-breakpoint-up(base){
+			width: 1600px;
+		}
+	}
+	&__main-row{
+
+	}
+	&__left-col{
+		@include media-breakpoint-up(xl){
+			width: calc(#{rem(722)} + var(--bs-gutter-x)) !important;
+		}
+
+		position: relative;
+		&:after{
+			@include media-breakpoint-up(xl){
+				content: '';
+				right: rem(-120);
+			}
+			@include media-breakpoint-up(base){
+				right: rem(-150);
+			}
+
+			position: absolute;
+			width: 1px;
+			height: calc(100% + #{rem(80)});
+			top: rem(-43);
+			background: $white;
+		}
+	}
+	&__right-col{
+		@include media-breakpoint-up(xl){
+			width: calc(#{rem(450)} + var(--bs-gutter-x)) !important;
+			margin-left: auto;
+		}
+		@include media-breakpoint-up(base){
+			margin-right: rem(81);
+		}
+	}
+
+	//
+	&__title{
+		font-weight: 400;
+		font-size: rem(30);
+		color: $white;
+		margin-bottom: rem(33);
+
+		&--mb-alt{
+			@include media-breakpoint-up(base){
+				margin-bottom: rem(47);
+			}
+		}
+	}
+	//
+	&__items{
+		counter-reset: list 0;
+	}
+
+	&__item{
+		border: 1px solid $white;
+		border-radius: rem(3);
+
+		padding: rem(16) rem(20);
+		@include media-breakpoint-up(base){
+			padding: rem(18) rem(31) rem(15) rem(24);
+		}
+
+		list-style-type: none;
+		margin-bottom: rem(12);
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__i-row{
+		--bs-gutter-x: #{rem(30)};
+	}
+	&__num{
+		font-family: $mono2;
+		font-size: rem(26);
+		line-height: 1;
+		color: $gray-320;
+
+		&:after {
+			counter-increment: list;
+			content: "0"counter(list);
+		}
+	}
+	&__name{
+		font-size: rem(23);
+		line-height: calc(29/23);
+	}
+	&__descr{
+		font-size: rem(20);
+		line-height: 1.3;
+		text-transform: lowercase;
+		color: $white;
+	}
+	&__control{
+		width: rem(126);
+		position: relative;
+		z-index: 1;
+	}
+
+	&__input{
+		border-radius: rem(40);
+		background-color: transparent!important;
+		border-color: $white!important;
+		color: $white!important;
+		text-align: center;
+
+		font-size: rem(23);
+		line-height: calc(30/23);
+		padding: rem(4) rem(45);
+	}
+	&__btn{
+		@include mt();
+		@extend .btn;
+		position: absolute;
+		top: 0;
+		width: rem(40);
+		padding: 0;
+		height: 100%;
+
+		background-color: transparent;
+		color: $white;
+		&:hover{
+			background-color: $white;
+			color: $black;
+		}
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+
+			height: calc(100% - #{rem(16)});
+			width: 1px;
+			background-color: $white;
+		}
+
+		&--minus{
+			left: 0;
+			border-radius: rem(40) 0 0 rem(40);
+
+			&:after{
+				right: 0;
+			}
+		}
+		&--plus{
+			right: 0;
+			border-radius: 0 rem(40) rem(40) 0;
+
+			&:after{
+				left: 0;
+			}
+		}
+	}
+
+	//-
+	&__price{
+		min-width: rem(100);
+		text-align: right;
+		font-weight: 600;
+		font-size: rem(23);
+		line-height: calc(29/23);
+
+		color: $white;
+	}
+	&__remove-btn{
+		@extend .btn;
+		@extend .btn-outline-white;
+
+		width: rem(47);
+		height: rem(47);
+		padding: 0!important;
+		border-radius: 50%;
+
+		font-size: rem(30) !important;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-weight: 300;
+
+		//transform: rotate(-45deg);
+	}
+	//
+
+	&__{}
+
+	.form-wrap{
+		&__inputs{
+			margin-bottom: rem(48);
+		}
+		&__input-wrap{
+			margin-bottom: rem(6);
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+
+		//-input
+		.label{
+			position: relative;
+			margin-bottom: rem(24px);
+
+			input.not-empty,
+			input:focus {
+				//background-color: $white;
+				//padding-top: rem(27px);
+				//padding-bottom: rem(7px);
+			}
+
+			input.not-empty + span,
+			input:focus + span,
+			textarea.not-empty + span,
+			textarea:focus + span ,
+			select.not-empty + span,
+			select:focus + span {
+				top: calc(#{rem(20)} * -1)!important;
+			}
+
+		}
+		&__l-title {
+			@include mt();
+			position: absolute;
+			pointer-events: none;
+
+			top: rem(15);
+			left: 0;
+			font-weight: 300;
+			font-size: rem(20);
+			line-height: 1.3;
+		}
+		&__input {
+			padding: rem(15) 0!important;
+			border-radius: 0!important;
+			background-color: transparent!important;
+			color: $white!important;
+
+			border-left: none!important;
+			border-right: none!important;
+			border-bottom: 1px solid $white!important;
+			border-top: 1px solid transparent!important;
+
+			font-size: rem(20);
+			line-height: calc(26/20);
+
+			@include placeholder(){
+				color: $white;
+			}
+		}
+
+		&__pay-btn{
+			@extend .btn;
+			@extend .btn-outline-white;
+
+			font-style: italic;
+			font-weight: 600;
+			font-size: rem(22);
+			line-height: calc(28/22);
+			text-transform: uppercase;
+
+			position: relative;
+			min-width: rem(227);
+			&:after{
+				//@include mt();
+				content: '';
+				position: absolute;
+				right: -3px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 6px;
+				height: calc(100% - 10px);
+				background-color: $danger;
+			}
+			&:before{
+				@include mt();
+				content: '';
+				position: absolute;
+				z-index: 2;
+				width: rem(45);
+				height: rem(22);
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%) translateX(50%);
+
+				background-image: url(../img/svg/long-arrow-right-white.svg);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+			}
+
+			&:hover{
+				&:after{
+					opacity: 0;
+				}
+
+				&:before{
+					transform: translateY(-50%) translateX(150%);
+				}
+			}
+		}
+	}
+} // end.sCart
+
+.cart-radio{
+	cursor: pointer;
+	input:checked + .circle{
+		border: 1px solid $white;
+		background: $white;
+		color: $black;
+	}
+
+	.circle{
+		@include mt();
+		border: 1px solid $gray-400;
+		background: transparent;
+		color: $white;
+
+		min-width: rem(36);
+		height: rem(36);
+		border-radius: rem(60);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+		font-family: $mono2;
+		font-weight: bold;
+		font-size: rem(17);
+		line-height: calc(24/17);
+	}
+
+}

@@ -1,0 +1,39 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sSlider/_sSlider.pug
+include ../blocks/sAbout/_sAbout.pug
+include ../blocks/sVideo/_sVideo.pug
+include ../blocks/sPlan/_sPlan.pug
+include ../blocks/sCert/_sCert.pug
+include ../blocks/sCart/_sCart.pug
+include ../blocks/sSoc/_sSoc.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg= '01.png'
+
+block title
+	- let  title= 'title'
+	title= title
+block pagecontent 
+	//-a.link-modal-js(href="#modal-call") sadasdsa
+	+mob-mnu()
+	+header()
+		+top-nav()
+	.pt-5
+	.pt-5
+	.pt-5
+	.section
+		.container
+			.row.gx-3.gy-3
+				+modalBtn('modal-adult')
+				+modalBtn('modal-reg')
+				+modalBtn('modal-thanks')
+	+footer()
+
+mixin modalBtn(modalId)
+	.col-auto
+		a.btn.btn-danger.link-modal-js(href=`#${modalId}`)=modalId

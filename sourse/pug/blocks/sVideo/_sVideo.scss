@@ -1,0 +1,124 @@
+// start .sVideo
+.sVideo {
+	--sPB: #{rem(0)};
+
+	@include media-breakpoint-up(md) {
+		--sPT: #{rem(50)};
+	}
+	&__link{
+		overflow: hidden;
+		display: block;
+		height: rem(507);
+		max-height: calc(var(--vh, 1vh) * 100);
+
+		clip-path: polygon(0 calc(20/500 * 100%), 100% 0%, 100% 100%, 0% 100%);
+		@include media-breakpoint-up(md){
+			clip-path: polygon(0 calc(40/500 * 100%), 100% 0%, 100% 100%, 0% 100%);
+		}
+		@include media-breakpoint-up(base){
+			clip-path: polygon(0 calc(120/500 * 100%), 100% 0%, 100% 100%, 0% 100%);
+		}
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		position: relative;
+		&:after{
+			@include mt();
+			opacity: var(--link-aft-o, 1);
+			content: '';
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(56, 56, 56, 0.5), rgba(56, 56, 56, 0.5));
+		}
+
+		&:hover{
+			//--cirlce-scale: 1.2;
+			--link-aft-o: .7;
+			.circle{
+				//width: calc(100% + var(--circle-distance, 10px) * 1.7);
+				//height: calc(100% + var(--circle-distance, 10px) * 1.7);
+				animation: fly .4s ease-in-out 1 forwards!important;
+			}
+		}
+	}
+	@keyframes fly {
+		from{
+			width: calc(100% + var(--circle-distance, 10px));
+			height: calc(100% + var(--circle-distance, 10px));
+			opacity: var(--circle-o);
+		}
+		to{
+			width: calc(100% + var(--circle-distance, 10px) * 20);
+			height: calc(100% + var(--circle-distance, 10px) * 20);
+			opacity: 0;
+		}
+	}
+
+	&__btn{
+		@include mt();
+		display: block;
+		position: absolute;
+		z-index: 10;
+		top: 52%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+		&:hover{
+			transform: translateY(-50%) translateX(-50%) scale(1.3);
+		}
+
+		width: rem(69.5);
+		height: rem(69.5);
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.circle{
+			pointer-events: none;
+			@include mt();
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			transform: translateY(-50%) translateX(-50%) scale(var(--cirlce-scale, 1));
+			border: 1px solid $white;
+			opacity: var(--circle-o, 1);
+
+			//animation: fly reverse .4s ease-in-out  1 forwards;
+
+			width: calc(100% + var(--circle-distance, 10px));
+			height: calc(100% + var(--circle-distance, 10px));
+
+			&:nth-child(1){
+				--circle-distance: #{rem(12)};
+				--circle-o: 1;
+			}
+			&:nth-child(2){
+				--circle-distance: #{rem(32)};
+				--circle-o: 0.58;
+			}
+			&:nth-child(3){
+				--circle-distance: #{rem(66)};
+				--circle-o: 0.31;
+			}
+			&:nth-child(4){
+				--circle-distance: #{rem(110)};
+				--circle-o: 0.12;
+			}
+		}
+	}
+
+	&__{}
+	&__{}
+} // end.sVideo

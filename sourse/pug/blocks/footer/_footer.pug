@@ -1,0 +1,10 @@
+mixin footer()
+	+b.FOOTER.footer
+		.container
+			.row.align-items-center.align-items-xl-start.gy-4
+				.col-md-auto.col-xl
+					+mnu2()
+				.col-md.col-xl-auto.order-first.order-xl-0
+					+e.logo(href="/")
+						img(loading="lazy" src='img/svg/logo-white.svg' alt="")
+				.col.d-none.d-xl-block

@@ -1,0 +1,22 @@
+include ../../_assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+include components/menu.pug
+include components/icon.pug
+include components/breadcrumb.pug
+include components/pugination.pug
+include components/soc.pug
+include components/pic.pug
+include components/img.pug
+include components/btn.pug
+
+
+mixin arrow()
+	.swiper-prev
+		img(loading="lazy" src="img/svg/c-arrow-left.svg" alt="")
+	.swiper-next
+		img(loading="lazy" src="img/svg/c-arrow-right.svg" alt="")
+
+mixin ie11()
+	//- modernizer and for ie11
+	 
+	<!--[if lt IE 11]><p   class="browsehappy container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p><![endif]-->

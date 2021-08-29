@@ -1,0 +1,35 @@
+mixin sForm()
+	// start sForm
+	+b.sForm#sForm&attributes(attributes)
+		+e.container.container-lg
+			+e.row.row
+				+e.left-col.col-lg-6.col-xl-auto
+					+e.lc-content
+						+e.title--miss Чтобы ничего не пропустить
+						+form-wrap('Подписаться на рассылку')
+							+e.img--top.d-none.d-xl-block
+								img(loading="lazy" src="img/svg/subscribe-news-top.svg" alt="")
+							.h5.text-danger.d-xl-none Подписаться на рассылку новостей
+							.input-group
+								+e.INPUT.input.form-control(type="email" placeholder="Напишите вашу почту..." required name="email")
+								+e.btn(type="submit")
+									img(loading="lazy" src='img/svg/short-arrow-r-w.svg' alt="")
+							+e.img--bot.d-none.d-xl-block
+								img(loading="lazy" src="img/svg/subscribe-news-bot.svg" alt="")
+				+e.right-col.col-lg
+					+e.title--contacts Контакты
+					+e.c-descr Отвечу на ваши вопросы в социальных сетях. Буду рад знакомству и сотрудничеству, подписывайтесь, следите и пишите.
+					+e.c-row.row
+						+sFormLink('mailto:name@gmail.com','name@gmail.com')
+						+sFormLink('','+7 (999) 999-99-99')
+					+headerSocRow('-black')
+					+e.title--investors Инвесторам
+					+e.investors
+						| Рассматриваем привлечение
+						br
+						| капитала от 30 млн руб.
+	// end sForm
+
+mixin sFormLink(href, txt)
+	.col-auto
+		a(href=href)=txt
