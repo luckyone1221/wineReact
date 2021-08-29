@@ -190,9 +190,11 @@ const $ = jQuery;
 function eventHandler() {
 	JSCCommon.modalCall();
 	JSCCommon.mobileMenu();
-	JSCCommon.inputMask();
 	JSCCommon.sendForm();
-	JSCCommon.heightwindow(); // var x = window.location.host;
+	JSCCommon.heightwindow();
+	window.setTimeout(function () {
+		JSCCommon.inputMask();
+	}, 200); // var x = window.location.host;
 	// let screenName;
 	// screenName = document.body.dataset.bg;
 	// if (screenName && x.includes("localhost:30")) {
@@ -258,21 +260,21 @@ function eventHandler() {
 	$('.number-mask-js').each(function () {
 		Inputmask(this.getAttribute('data-mask')).mask(this);
 	}); //readmore
-
-	let readMoreConts = document.querySelectorAll('.rm-cont-js');
-
-	for (let cont of readMoreConts) {
-		let btn = cont.querySelector('.rm-btn-js');
-		btn.addEventListener('click', function () {
-			this.classList.toggle('active');
-			let hidden = cont.querySelector('.rm-hidden-js');
-			let visiable = cont.querySelector('.rm-visible-js');
-			$(hidden).slideToggle(function () {
-				$(this).toggleClass('active');
-			});
-			$(visiable).toggleClass('active');
-		});
-	}
+	// let readMoreConts = document.querySelectorAll('.rm-cont-js');
+	// for (let cont of readMoreConts){
+	// 	let btn = cont.querySelector('.rm-btn-js');
+	//
+	// 	btn.addEventListener('click', function (){
+	// 		this.classList.toggle('active');
+	// 		let hidden = cont.querySelector('.rm-hidden-js');
+	// 		let visiable = cont.querySelector('.rm-visible-js');
+	//
+	// 		$(hidden).slideToggle(function (){
+	// 			$(this).toggleClass('active');
+	// 		});
+	// 		$(visiable).toggleClass('active');
+	// 	});
+	// }
 
 	document.body.addEventListener('click', function () {
 		let btn = event.target.closest('.rm-btn-js');
@@ -288,162 +290,6 @@ function eventHandler() {
 			$(visiable).toggleClass('active');
 		}
 	}); //cart
-
-	let cart = {
-		cartItems: {},
-		cartWrap: document.querySelector('.cart-items-js'),
-		hiddenInp: document.querySelector('.hidden-inputs-js input[type="hidden"]'),
-		makeProdControlls: function (Proditem) {
-			let cart = this;
-			let inp = Proditem.querySelector('.amount-inp-js');
-			let min = Proditem.querySelector('.min-btn-js');
-			let plus = Proditem.querySelector('.plus-btn-js');
-			let add = Proditem.querySelector('.add-btn-js');
-			let radioItems = Proditem.querySelectorAll('.inp-radio-js');
-			$(min).click(function () {
-				inp.value = Number(inp.value) - 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-				Proditem.setAttribute('data-amount', inp.value);
-			});
-			$(plus).click(function () {
-				inp.value = Number(inp.value) + 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-				Proditem.setAttribute('data-amount', inp.value);
-			});
-			$(inp).change(function () {
-				!inp.reportValidity() ? inp.value = 1 : '';
-				Proditem.setAttribute('data-amount', inp.value);
-			});
-			$(add).click(cart.addProdItem.bind(this, Proditem)); //-
-
-			$(radioItems).change(function () {
-				let checkedRadio;
-
-				for (let radio of radioItems) {
-					if (radio.checked) {
-						checkedRadio = radio;
-					}
-				}
-
-				Proditem.setAttribute("data-checked-radio", checkedRadio.value);
-			});
-		},
-		addProdItem: function (Proditem) {
-			let itemProps = {
-				name: Proditem.getAttribute('data-name'),
-				descr: Proditem.getAttribute('data-descr'),
-				price: Proditem.getAttribute('data-price'),
-				amount: Proditem.getAttribute('data-amount'),
-				radioOptions: Proditem.getAttribute('data-radio-options'),
-				checkedRadio: Proditem.getAttribute('data-checked-radio')
-			}; //remove null values
-
-			Object.keys(itemProps).forEach(key => itemProps[key] === null ? delete itemProps[key] : {});
-			this.cartItems[Proditem.getAttribute('id')] = itemProps;
-			this.renderCart();
-		},
-		//cart methods
-		onCartInputChange: function (cartItem) {
-			let thisProdItemId = cartItem.getAttribute('data-prod-item-id');
-			let thisProdItem = document.querySelector("#".concat(thisProdItemId));
-			let thisProdItemInp = thisProdItem.querySelector(".amount-inp-js");
-			let inp = cartItem.querySelector('.amount-inp-js');
-			thisProdItemInp.value = inp.value;
-			thisProdItem.setAttribute('data-amount', inp.value);
-			cart.cartItems[thisProdItemId].amount = inp.value;
-			cart.renderCart();
-		},
-		makeCartControlls: function (cartItem) {
-			let cart = this;
-			let thisProdItemId = cartItem.getAttribute('data-prod-item-id');
-			let thisProdItem = document.querySelector("#".concat(thisProdItemId));
-			let thisProdItemInp = thisProdItem.querySelector(".amount-inp-js");
-			let inp = cartItem.querySelector('.amount-inp-js');
-			let min = cartItem.querySelector('.min-btn-js');
-			let plus = cartItem.querySelector('.plus-btn-js');
-			let radioItems = cartItem.querySelectorAll('input[type="radio"]');
-			let removeBtn = cartItem.querySelector('.remove-btn-js');
-			$(min).click(function () {
-				inp.value = Number(inp.value) - 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-				cart.onCartInputChange(cartItem);
-			});
-			$(plus).click(function () {
-				inp.value = Number(inp.value) + 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-				cart.onCartInputChange(cartItem);
-			});
-			$(inp).change(function () {
-				!inp.reportValidity() ? inp.value = 1 : '';
-				cart.onCartInputChange(cartItem);
-			}); //-
-
-			$(radioItems).change(function () {
-				let checkedRadio;
-
-				for (let radio of radioItems) {
-					if (radio.checked) {
-						checkedRadio = radio;
-					}
-				}
-
-				let thisProdItemRadio = thisProdItem.querySelector("input[type=\"radio\"][value=".concat(checkedRadio.value, "]"));
-				thisProdItemRadio.checked = true;
-				thisProdItem.setAttribute('data-checked-radio', checkedRadio.value);
-				cart.cartItems[thisProdItemId].checkedRadio = checkedRadio.value;
-				cart.renderCart();
-			});
-			$(removeBtn).click(function () {
-				delete cart.cartItems[thisProdItemId];
-				thisProdItemInp.value = 1;
-				thisProdItem.setAttribute('data-amount', 1);
-				cart.renderCart();
-			});
-		},
-		getRadioRow: function (itemObj) {
-			if (itemObj.radioOptions) {
-				let radioOptionsArr = itemObj.radioOptions.split(',');
-				let radioItems = '';
-
-				for (let option of radioOptionsArr) {
-					radioItems += "<div class=\"col-auto\">\n\t\t\t\t\t\t<label class=\"cart-radio\">\n\t\t\t\t\t\t\t<input \n\t\t\t\t\t\t\t\ttype=\"radio\" \n\t\t\t\t\t\t\t\tclass=\"invisible\"\n\t\t\t\t\t\t\t\tname=\"cart-radio-group\" \n\t\t\t\t\t\t\t\tvalue=\"".concat(option, "\" \n\t\t\t\t\t\t\t\t").concat(itemObj.checkedRadio === option && 'checked', ">\n\t\t\t\t\t\t\t<span class=\"circle\">\n\t\t\t\t\t\t\t\t").concat(option, "\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</label>\n\t\t\t\t\t</div>");
-				}
-
-				return "<div class=\"row gx-2 gy-2 pt-2\">\n\t\t\t\t\t\t".concat(radioItems, "\n\t\t\t\t\t</div>");
-			}
-		},
-		getCardTemplate: function (itemObj, itemId) {
-			// cart-item-js[data-prod-item-id]
-			// amount-inp-js
-			// min-btn-js
-			// plus-btn-js
-			// remove-btn-js
-			let template = "\n\t\t\t\t<div class=\"sCart__item cart-item-js\" data-prod-item-id=\"".concat(itemId, "\">\n\t\t\t\t\t<div class=\"sCart__i-row row align-items-center gy-3\">\n\t\t\t\t\t\t<div class=\"col-auto\">\n\t\t\t\t\t\t\t<div class=\"sCart__num\"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col\">\n\t\t\t\t\t\t\t<div class=\"sCart__name\">\n\t\t\t\t\t\t\t\t").concat(itemObj.name, "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t").concat(itemObj.descr && "<div class=\"sCart__descr\"> ".concat(itemObj.descr, " </div>") || '', "\n\t\t\t\t\t\t\t").concat(this.getRadioRow(itemObj) || '', "\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12 m-0 d-md-none\"></div>\n\t\t\t\t\t\t<div class=\"col col-md-auto\">\n\t\t\t\t\t\t\t<div class=\"sCart__control\">\n\t\t\t\t\t\t\t\t<button class=\"sCart__btn sCart__btn--minus min-btn-js\" type=\"button\">\n\t\t\t\t\t\t\t\t\t-\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t<input \n\t\t\t\t\t\t\t\t\tclass=\"sCart__input form-control amount-inp-js\"\n\t\t\t\t\t\t\t\t\ttype=\"number\" min=\"1\" max=\"99\"\n\t\t\t\t\t\t\t\t\tvalue=\"").concat(itemObj.amount, "\" />\n\t\t\t\t\t\t\t\t<button class=\"sCart__btn sCart__btn--plus plus-btn-js\" type=\"button\">\n\t\t\t\t\t\t\t\t\t+\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-auto\">\n\t\t\t\t\t\t\t<div class=\"sCart__price\">\n\t\t\t\t\t\t\t\t<b>").concat(Number(itemObj.amount.replace(/\s/g, '')) * Number(itemObj.price.replace(/\s/g, '')), "</b>\n\t\t\t\t\t\t\t\t\u0440.\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-auto\">\n\t\t\t\t\t\t\t<button class=\"sCart__remove-btn remove-btn-js\" type=\"button\">\n\t\t\t\t\t\t\t\t<!-- <img src=\"img/svg/cross.svg\" alt=\"\">-->\n\t\t\t\t\t\t\t\t\xD7\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t");
-			return template;
-		},
-		renderCart: function () {
-			this.cartWrap.innerHTML = '';
-
-			for (let [itemId, itemObj] of Object.entries(this.cartItems)) {
-				this.cartWrap.innerHTML += this.getCardTemplate(itemObj, itemId);
-			}
-
-			let cartItems = this.cartWrap.querySelectorAll('.cart-item-js');
-
-			for (let item of cartItems) {
-				this.makeCartControlls(item);
-			}
-
-			this.renderHiddenInps();
-		},
-		//
-		renderHiddenInps: function () {
-			this.hiddenInp.value = JSON.stringify(this.cartItems);
-		}
-	}; //start cart
-	// $('.prod-item--js').each(function (){
-	// 	cart.makeProdControlls(this);
-	// });
 	//-
 
 	let sSocSlider = new Swiper('.sSoc-slider-js', {

@@ -39,7 +39,9 @@ global.$ = {
     },
     public: 'public',
     sourse: 'sourse',
+    react: require('gulp-react'),
 }
+
 $.path.tasks.forEach(function (taskPath) {
     require(taskPath)();
 });
@@ -58,6 +60,7 @@ $.gulp.task('default', $.gulp.series('svg', 'svgCopy',
         'libs',
         'scripts',
         'scripts:common',
+        'react',
         'sass',
         'serv', 'watch'
         // 'scripts:common',

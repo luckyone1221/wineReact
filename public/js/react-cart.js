@@ -155,149 +155,149 @@ class ReactCart extends React.Component {
 
   render() {
     return (
-      <div>
-        {/*catalog*/}
-        <section className="sCert section" id="sCert">
-          <div className="gray-txt">
-            Сертификат винодела
-          </div>
-          <div className="sCert__container container">
-            <div className="sCert__top-row row gy-5 align-items-center">
-              <div className="sCert__left-col col-xl-auto">
-                <div className="section-title">
-                  <h2>Сертификат винодела</h2>
-                </div>
-                <div className="sCert__descr-title">Описание
-                </div>
-                <div className="sCert__descr">
-                  <p>С помощью сертификатов мы сможем принять ваше участие и поддержку проекта, а так же сформировать
-                    сообщество прекрасных людей, которые любят вино и ценят труд.</p>
-                  <p className="mb-0">Покупая сертификат вы получите несколько приятных бонусов:</p>
-                  <ul>
-                    <li>членство в клубе</li>
-                    <li>специальную пожизненную скидку на вино</li>
-                    <li>приоритетный доступ на самые важные мероприятия - сбор урожая и праздник вина</li>
-                  </ul>
-                  <p>Можно купить лично себе или в подарок, сделать корпоративным презентом для коллег, сотрудников,
-                    партнеров или клиентов.</p>
-                </div>
-              </div>
-              <div className="col">
-                <div className="sCert__already-box">
-                  <div className="sCert__a-txt">
-                    <p>Уже приобрели сертификат?</p>
-                    <p>Вы можете его зарегистрировать!</p>
-                  </div>
-                  <a className="sCert__a-btn link-modal-js" href="#modal-reg"><span>Перейти к регистрации</span>
-                    <div className="sCert__a-icon"><img loading="lazy" src="img/svg/long-arrow-right.svg" alt=""/>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="col-auto align-self-start">
-                <a className="sCert__share-btn" href="#"><img loading="lazy" src="img/svg/share.svg" alt=""/>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="row gy-0 gx-0">
-            {Object.keys(this.state.prodItems).map((prodItem, index) => (
-              <ProdItem
-                key={index}
-                itemId={prodItem}
-                price={this.state.prodItems[prodItem].price}
-                inCart={this.state.prodItems[prodItem].inCart}
-                amount={this.state.prodItems[prodItem].amount}
-                itemName={this.state.prodItems[prodItem].itemName}
-                descr={this.state.prodItems[prodItem].descr}
-                radioGroup={this.state.prodItems[prodItem].radioGroup}
-                chosenRadio={this.state.prodItems[prodItem].chosenRadio}
-                imgPass={this.state.prodItems[prodItem].imgPass}
-                smDescr={this.state.prodItems[prodItem].smDescr}
+      React.createElement("div", null, 
+        /*catalog*/
+        React.createElement("section", {className: "sCert section", id: "sCert"}, 
+          React.createElement("div", {className: "gray-txt"}, 
+            "Сертификат винодела"
+          ), 
+          React.createElement("div", {className: "sCert__container container"}, 
+            React.createElement("div", {className: "sCert__top-row row gy-5 align-items-center"}, 
+              React.createElement("div", {className: "sCert__left-col col-xl-auto"}, 
+                React.createElement("div", {className: "section-title"}, 
+                  React.createElement("h2", null, "Сертификат винодела")
+                ), 
+                React.createElement("div", {className: "sCert__descr-title"}, "Описание"
+                ), 
+                React.createElement("div", {className: "sCert__descr"}, 
+                  React.createElement("p", null, "С помощью сертификатов мы сможем принять ваше участие и поддержку проекта, а так же сформировать" + ' ' +
+                    "сообщество прекрасных людей, которые любят вино и ценят труд."), 
+                  React.createElement("p", {className: "mb-0"}, "Покупая сертификат вы получите несколько приятных бонусов:"), 
+                  React.createElement("ul", null, 
+                    React.createElement("li", null, "членство в клубе"), 
+                    React.createElement("li", null, "специальную пожизненную скидку на вино"), 
+                    React.createElement("li", null, "приоритетный доступ на самые важные мероприятия - сбор урожая и праздник вина")
+                  ), 
+                  React.createElement("p", null, "Можно купить лично себе или в подарок, сделать корпоративным презентом для коллег, сотрудников," + ' ' +
+                    "партнеров или клиентов.")
+                )
+              ), 
+              React.createElement("div", {className: "col"}, 
+                React.createElement("div", {className: "sCert__already-box"}, 
+                  React.createElement("div", {className: "sCert__a-txt"}, 
+                    React.createElement("p", null, "Уже приобрели сертификат?"), 
+                    React.createElement("p", null, "Вы можете его зарегистрировать!")
+                  ), 
+                  React.createElement("a", {className: "sCert__a-btn link-modal-js", href: "#modal-reg"}, React.createElement("span", null, "Перейти к регистрации"), 
+                    React.createElement("div", {className: "sCert__a-icon"}, React.createElement("img", {loading: "lazy", src: "img/svg/long-arrow-right.svg", alt: ""})
+                    )
+                  )
+                )
+              ), 
+              React.createElement("div", {className: "col-auto align-self-start"}, 
+                React.createElement("a", {className: "sCert__share-btn", href: "#"}, React.createElement("img", {loading: "lazy", src: "img/svg/share.svg", alt: ""})
+                )
+              )
+            )
+          ), 
+          React.createElement("div", {className: "row gy-0 gx-0"}, 
+            Object.keys(this.state.prodItems).map((prodItem, index) => (
+              React.createElement(ProdItem, {
+                key: index, 
+                itemId: prodItem, 
+                price: this.state.prodItems[prodItem].price, 
+                inCart: this.state.prodItems[prodItem].inCart, 
+                amount: this.state.prodItems[prodItem].amount, 
+                itemName: this.state.prodItems[prodItem].itemName, 
+                descr: this.state.prodItems[prodItem].descr, 
+                radioGroup: this.state.prodItems[prodItem].radioGroup, 
+                chosenRadio: this.state.prodItems[prodItem].chosenRadio, 
+                imgPass: this.state.prodItems[prodItem].imgPass, 
+                smDescr: this.state.prodItems[prodItem].smDescr, 
 
-                buttonClick={this.buttonClick.bind(this)}
-                inputChange={this.inputChange.bind(this)}
-                addBtnClick={this.toggleToCart.bind(this)}
-                radioChange={this.radioChange.bind(this)}
-              />
-            ))}
-          </div>
-        </section>
-        {/*cart*/}
-        <div className="sCart section" id="sCart">
-          <div className="sCart__container container">
-            <div className="sCart__main-row row gy-5">
-              <div className="sCart__left-col col-lg-7 col-xl-6">
-                <h4 className="sCart__title">
-                  Моя корзина:
-                </h4>
-                <div className="sCart__items cart-items-js">
-                  {Object.keys(this.state.prodItems).map((prodItem, index) => {
+                buttonClick: this.buttonClick.bind(this), 
+                inputChange: this.inputChange.bind(this), 
+                addBtnClick: this.toggleToCart.bind(this), 
+                radioChange: this.radioChange.bind(this)}
+              )
+            ))
+          )
+        ), 
+        /*cart*/
+        React.createElement("div", {className: "sCart section", id: "sCart"}, 
+          React.createElement("div", {className: "sCart__container container"}, 
+            React.createElement("div", {className: "sCart__main-row row gy-5"}, 
+              React.createElement("div", {className: "sCart__left-col col-lg-7 col-xl-6"}, 
+                React.createElement("h4", {className: "sCart__title"}, 
+                  "Моя корзина:"
+                ), 
+                React.createElement("div", {className: "sCart__items cart-items-js"}, 
+                  Object.keys(this.state.prodItems).map((prodItem, index) => {
                     if (this.state.prodItems[prodItem].inCart){
-                      return <CartItem
-                        key={index}
-                        itemId={prodItem}
-                        price={this.state.prodItems[prodItem].price}
-                        inCart={this.state.prodItems[prodItem].inCart}
-                        amount={this.state.prodItems[prodItem].amount}
-                        itemName={this.state.prodItems[prodItem].itemName}
-                        descr={this.state.prodItems[prodItem].descr}
-                        radioGroup={this.state.prodItems[prodItem].radioGroup}
-                        chosenRadio={this.state.prodItems[prodItem].chosenRadio}
-                        imgPass={this.state.prodItems[prodItem].imgPass}
-                        smDescr={this.state.prodItems[prodItem].smDescr}
+                      return React.createElement(CartItem, {
+                        key: index, 
+                        itemId: prodItem, 
+                        price: this.state.prodItems[prodItem].price, 
+                        inCart: this.state.prodItems[prodItem].inCart, 
+                        amount: this.state.prodItems[prodItem].amount, 
+                        itemName: this.state.prodItems[prodItem].itemName, 
+                        descr: this.state.prodItems[prodItem].descr, 
+                        radioGroup: this.state.prodItems[prodItem].radioGroup, 
+                        chosenRadio: this.state.prodItems[prodItem].chosenRadio, 
+                        imgPass: this.state.prodItems[prodItem].imgPass, 
+                        smDescr: this.state.prodItems[prodItem].smDescr, 
 
-                        buttonClick={this.buttonClick.bind(this)}
-                        inputChange={this.inputChange.bind(this)}
-                        addBtnClick={this.toggleToCart.bind(this)}
-                        radioChange={this.radioChange.bind(this)}
-                      />
+                        buttonClick: this.buttonClick.bind(this), 
+                        inputChange: this.inputChange.bind(this), 
+                        addBtnClick: this.toggleToCart.bind(this), 
+                        radioChange: this.radioChange.bind(this)}
+                      )
                     }
-                  })}
-                </div>
-              </div>
-              <div className="sCart__right-col col-lg-5 col-xl-6">
-                <h4 className="sCart__title sCart__title--mb-alt">
-                  Персональная информация
-                </h4>
-                <div className="form-wrap">
-                  <form>
-                    <input type="hidden" name="message-from" value="Корзина"/>
-                    <input name="example-input-field" type="hidden"/>
-                    <input className="order" name="order" type="hidden" value="Заявка  с сайта"/>
-                    <input className="utm_source" name="utm_source" type="hidden"/>
-                    <input className="utm_term" name="utm_term" type="hidden"/>
-                    <input className="utm_medium" name="utm_medium" type="hidden"/>
-                    <input className="utm_campaign" name="utm_campaign" type="hidden"/>
-                    <div className="hidden-inputs-js d-none">
-                      <input className="cart-inp-js" type="hidden" value={this.state.cartJson} name="cart"/>
-                    </div>
-                    <div className="form-wrap__inputs">
-                      <div className="form-wrap__input-wrap form-group">
-                        <input className="form-wrap__input form-control"
-                               name="email" type="email" placeholder="E-mail" required="required"/>
-                      </div>
-                      <div className="form-wrap__input-wrap form-group">
-                        <input className="form-wrap__input form-control"
-                               name="name" type="text" placeholder="Ваше имя" required="required"/>
-                      </div>
-                      <div className="form-wrap__input-wrap form-group">
-                        <input className="form-wrap__input form-control"
-                               name="tel" type="tel" placeholder="+7 (999) 999 99 99 " required="required"/>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <button className="form-wrap__pay-btn" type="submit">ОПЛАТИТЬ
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/**/}
-      </div>
+                  })
+                )
+              ), 
+              React.createElement("div", {className: "sCart__right-col col-lg-5 col-xl-6"}, 
+                React.createElement("h4", {className: "sCart__title sCart__title--mb-alt"}, 
+                  "Персональная информация"
+                ), 
+                React.createElement("div", {className: "form-wrap"}, 
+                  React.createElement("form", null, 
+                    React.createElement("input", {type: "hidden", name: "message-from", value: "Корзина"}), 
+                    React.createElement("input", {name: "example-input-field", type: "hidden"}), 
+                    React.createElement("input", {className: "order", name: "order", type: "hidden", value: "Заявка  с сайта"}), 
+                    React.createElement("input", {className: "utm_source", name: "utm_source", type: "hidden"}), 
+                    React.createElement("input", {className: "utm_term", name: "utm_term", type: "hidden"}), 
+                    React.createElement("input", {className: "utm_medium", name: "utm_medium", type: "hidden"}), 
+                    React.createElement("input", {className: "utm_campaign", name: "utm_campaign", type: "hidden"}), 
+                    React.createElement("div", {className: "hidden-inputs-js d-none"}, 
+                      React.createElement("input", {className: "cart-inp-js", type: "hidden", value: this.state.cartJson, name: "cart"})
+                    ), 
+                    React.createElement("div", {className: "form-wrap__inputs"}, 
+                      React.createElement("div", {className: "form-wrap__input-wrap form-group"}, 
+                        React.createElement("input", {className: "form-wrap__input form-control", 
+                               name: "email", type: "email", placeholder: "E-mail", required: "required"})
+                      ), 
+                      React.createElement("div", {className: "form-wrap__input-wrap form-group"}, 
+                        React.createElement("input", {className: "form-wrap__input form-control", 
+                               name: "name", type: "text", placeholder: "Ваше имя", required: "required"})
+                      ), 
+                      React.createElement("div", {className: "form-wrap__input-wrap form-group"}, 
+                        React.createElement("input", {className: "form-wrap__input form-control", 
+                               name: "tel", type: "tel", placeholder: "+7 (999) 999 99 99 ", required: "required"})
+                      )
+                    ), 
+                    React.createElement("div", {className: "text-center"}, 
+                      React.createElement("button", {className: "form-wrap__pay-btn", type: "submit"}, "ОПЛАТИТЬ"
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+        /**/
+      )
     );
   }
 }
@@ -312,85 +312,85 @@ class CartItem extends React.Component {
 
   render() {
     return (
-      <div className="sCart__item">
-        <div className="sCart__i-row row align-items-center gy-3">
-          <div className="col-auto sCart__num">
-          </div>
-          <div className="col">
-            <div className="sCart__name">
-              {this.props.itemName}
-            </div>
-            {this.props.descr && (
-              <div className="sCart__descr">
-                {this.props.descr}
-              </div>
-            )}
-            {/*  */}
-            {this.props.radioGroup && this.props.radioGroup.length > 0 && (
-              <div className="row gx-2 gy-2 pt-2">
-                {this.props.radioGroup.map( (radioVal,index) => (
-                  <div className="col-auto" key={index}>
-                    <label className="cart-radio">
-                      <input
-                        type="radio"
-                        className="invisible"
-                        name="cart-radio-group"
-                        value={radioVal}
-                        checked={index === this.props.chosenRadio}
-                        onChange={(e) => this.props.radioChange(index, this.props.itemId, e)}
-                      />
-                      <span className="circle">
-                        {radioVal}
-                      </span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-            )}
+      React.createElement("div", {className: "sCart__item"}, 
+        React.createElement("div", {className: "sCart__i-row row align-items-center gy-3"}, 
+          React.createElement("div", {className: "col-auto sCart__num"}
+          ), 
+          React.createElement("div", {className: "col"}, 
+            React.createElement("div", {className: "sCart__name"}, 
+              this.props.itemName
+            ), 
+            this.props.descr && (
+              React.createElement("div", {className: "sCart__descr"}, 
+                this.props.descr
+              )
+            ), 
+            /*  */
+            this.props.radioGroup && this.props.radioGroup.length > 0 && (
+              React.createElement("div", {className: "row gx-2 gy-2 pt-2"}, 
+                this.props.radioGroup.map( (radioVal,index) => (
+                  React.createElement("div", {className: "col-auto", key: index}, 
+                    React.createElement("label", {className: "cart-radio"}, 
+                      React.createElement("input", {
+                        type: "radio", 
+                        className: "invisible", 
+                        name: "cart-radio-group", 
+                        value: radioVal, 
+                        checked: index === this.props.chosenRadio, 
+                        onChange: (e) => this.props.radioChange(index, this.props.itemId, e)}
+                      ), 
+                      React.createElement("span", {className: "circle"}, 
+                        radioVal
+                      )
+                    )
+                  )
+                ))
+              )
+            )
 
-          </div>
-          <div className="col-12 m-0 d-md-none"></div>
-          <div className="col col-md-auto">
-            <div className="sCart__control">
-              <button
-                className="sCart__btn sCart__btn--minus"
-                type="button"
-                onClick= { (e) => this.props.buttonClick('minus', this.props.itemId, e)}
-              >
-                -
-              </button>
-              <input
-                className="sCart__input form-control amount-inp-js" type="number" min="1" max="99"
-                value={this.props.amount}
-                onChange={(e) => this.props.inputChange(this.props.itemId, e)}
-              />
-              <button
-                className="sCart__btn sCart__btn--plus plus-btn-js"
-                type="button"
-                onClick= { (e) => this.props.buttonClick('plus', this.props.itemId, e)}
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <div className="col-auto">
-            <div className="sCart__price">
-              <b>
-                {Number(this.props.price.replace(/\s/g, '')) * this.props.amount}
-              </b>
-              р.
-            </div>
-          </div>
-          <div className="col-auto">
-            <button
-              className="sCart__remove-btn remove-btn-js" type="button"
-              onClick= { () => this.props.addBtnClick(this.props.itemId)}
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      </div>
+          ), 
+          React.createElement("div", {className: "col-12 m-0 d-md-none"}), 
+          React.createElement("div", {className: "col col-md-auto"}, 
+            React.createElement("div", {className: "sCart__control"}, 
+              React.createElement("button", {
+                className: "sCart__btn sCart__btn--minus", 
+                type: "button", 
+                onClick:  (e) => this.props.buttonClick('minus', this.props.itemId, e)
+              }, 
+                "-"
+              ), 
+              React.createElement("input", {
+                className: "sCart__input form-control amount-inp-js", type: "number", min: "1", max: "99", 
+                value: this.props.amount, 
+                onChange: (e) => this.props.inputChange(this.props.itemId, e)}
+              ), 
+              React.createElement("button", {
+                className: "sCart__btn sCart__btn--plus plus-btn-js", 
+                type: "button", 
+                onClick:  (e) => this.props.buttonClick('plus', this.props.itemId, e)
+              }, 
+                "+"
+              )
+            )
+          ), 
+          React.createElement("div", {className: "col-auto"}, 
+            React.createElement("div", {className: "sCart__price"}, 
+              React.createElement("b", null, 
+                Number(this.props.price.replace(/\s/g, '')) * this.props.amount
+              ), 
+              "р."
+            )
+          ), 
+          React.createElement("div", {className: "col-auto"}, 
+            React.createElement("button", {
+              className: "sCart__remove-btn remove-btn-js", type: "button", 
+              onClick:  () => this.props.addBtnClick(this.props.itemId)
+            }, 
+              "×"
+            )
+          )
+        )
+      )
     );
   }
 }
@@ -404,98 +404,98 @@ class ProdItem extends React.Component {
 
   render() {
     return (
-      <div className="col-md-6 col-lg-4">
-        <div className="prod-item prod-item--js text-center">
-          <div className="prod-item__img">
-            <img loading="lazy" src={this.props.imgPass} alt=""/>
-          </div>
-          <div className="prod-item__descr-bl">
-            <div className="prod-item__black-title">
-              <div className="mb-1">
-                {this.props.itemName}
-              </div>
-              {this.props.descr && (
-                <div className="text-secondary fw-400">
-                  {this.props.descr}
-                </div>
-              )}
-            </div>
-            {this.props.smDescr && (
-              <div className="prod-item__sm-txt rm-cont-js" dangerouslySetInnerHTML={{__html: this.props.smDescr}}>
+      React.createElement("div", {className: "col-md-6 col-lg-4"}, 
+        React.createElement("div", {className: "prod-item prod-item--js text-center"}, 
+          React.createElement("div", {className: "prod-item__img"}, 
+            React.createElement("img", {loading: "lazy", src: this.props.imgPass, alt: ""})
+          ), 
+          React.createElement("div", {className: "prod-item__descr-bl"}, 
+            React.createElement("div", {className: "prod-item__black-title"}, 
+              React.createElement("div", {className: "mb-1"}, 
+                this.props.itemName
+              ), 
+              this.props.descr && (
+                React.createElement("div", {className: "text-secondary fw-400"}, 
+                  this.props.descr
+                )
+              )
+            ), 
+            this.props.smDescr && (
+              React.createElement("div", {className: "prod-item__sm-txt rm-cont-js", dangerouslySetInnerHTML: {__html: this.props.smDescr}}
 
-              </div>
-            )}
+              )
+            ), 
 
-            {/**/}
-            {this.props.radioGroup && this.props.radioGroup.length > 0 && (
-              <div>
-                <div className="prod-item__size-txt">
-                  Размер:
-                </div>
-                <div className="prod-item__radio-row row justify-content-center">
-                  {this.props.radioGroup.map( (radioVal,index) => (
-                    <div className="col-auto" key={index}>
-                      <label className="custom-input form-check">
-                        <input
-                          className="custom-input__input form-check-input"
-                          name="radio-group"
-                          type="radio"
-                          value={radioVal}
-                          checked={index === this.props.chosenRadio}
-                          onChange={(e) => this.props.radioChange(index, this.props.itemId, e)}
-                        />
-                        <span className="circle">
-                        {radioVal}
-                      </span>
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="prod-item__price">
-            <b>{this.props.price} </b>
-            p.
-          </div>
-          <div className="prod-item__controll-bl">
-            <div className="prod-item__c-row row">
-              <div className="col-auto">
-                <div className="prod-item__controll">
-                  <button
-                    className="prod-item__c-btn prod-item__c-btn--min min-btn-js"
-                    type="button"
-                    onClick= { (e) => this.props.buttonClick('minus', this.props.itemId, e)}
-                  >
-                    -
-                  </button>
-                  <input
-                    className="prod-item__input form-control amount-inp-js" type="number" min="1" max="99"
-                    value={this.props.amount}
-                    onChange={(e) => this.props.inputChange(this.props.itemId, e)}
-                  />
-                  <button
-                    className="prod-item__c-btn prod-item__c-btn--plus plus-btn-js"
-                    type="button"
-                    onClick= { (e) => this.props.buttonClick('plus', this.props.itemId, e)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-              <div className="col">
-                <button
-                  className={`prod-item__add-btn add-btn-js ${this.props.inCart && 'active'}`}
-                  type="button"
-                  onClick= { () => this.props.addBtnClick(this.props.itemId)}
-                >
-                  {this.props.inCart ? 'Удалить из корзины' : 'Добавить в корзину'}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            /**/
+            this.props.radioGroup && this.props.radioGroup.length > 0 && (
+              React.createElement("div", null, 
+                React.createElement("div", {className: "prod-item__size-txt"}, 
+                  "Размер:"
+                ), 
+                React.createElement("div", {className: "prod-item__radio-row row justify-content-center"}, 
+                  this.props.radioGroup.map( (radioVal,index) => (
+                    React.createElement("div", {className: "col-auto", key: index}, 
+                      React.createElement("label", {className: "custom-input form-check"}, 
+                        React.createElement("input", {
+                          className: "custom-input__input form-check-input", 
+                          name: "radio-group", 
+                          type: "radio", 
+                          value: radioVal, 
+                          checked: index === this.props.chosenRadio, 
+                          onChange: (e) => this.props.radioChange(index, this.props.itemId, e)}
+                        ), 
+                        React.createElement("span", {className: "circle"}, 
+                        radioVal
+                      )
+                      )
+                    )
+                  ))
+                )
+              )
+            )
+          ), 
+          React.createElement("div", {className: "prod-item__price"}, 
+            React.createElement("b", null, this.props.price, " "), 
+            "p."
+          ), 
+          React.createElement("div", {className: "prod-item__controll-bl"}, 
+            React.createElement("div", {className: "prod-item__c-row row"}, 
+              React.createElement("div", {className: "col-auto"}, 
+                React.createElement("div", {className: "prod-item__controll"}, 
+                  React.createElement("button", {
+                    className: "prod-item__c-btn prod-item__c-btn--min min-btn-js", 
+                    type: "button", 
+                    onClick:  (e) => this.props.buttonClick('minus', this.props.itemId, e)
+                  }, 
+                    "-"
+                  ), 
+                  React.createElement("input", {
+                    className: "prod-item__input form-control amount-inp-js", type: "number", min: "1", max: "99", 
+                    value: this.props.amount, 
+                    onChange: (e) => this.props.inputChange(this.props.itemId, e)}
+                  ), 
+                  React.createElement("button", {
+                    className: "prod-item__c-btn prod-item__c-btn--plus plus-btn-js", 
+                    type: "button", 
+                    onClick:  (e) => this.props.buttonClick('plus', this.props.itemId, e)
+                  }, 
+                    "+"
+                  )
+                )
+              ), 
+              React.createElement("div", {className: "col"}, 
+                React.createElement("button", {
+                  className: `prod-item__add-btn add-btn-js ${this.props.inCart && 'active'}`, 
+                  type: "button", 
+                  onClick:  () => this.props.addBtnClick(this.props.itemId)
+                }, 
+                  this.props.inCart ? 'Удалить из корзины' : 'Добавить в корзину'
+                )
+              )
+            )
+          )
+        )
+      )
     );
   }
 }

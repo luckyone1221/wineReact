@@ -173,9 +173,12 @@ const $ = jQuery;
 function eventHandler() {
 	JSCCommon.modalCall();
 	JSCCommon.mobileMenu();
-	JSCCommon.inputMask();
 	JSCCommon.sendForm();
 	JSCCommon.heightwindow();
+
+	window.setTimeout(function (){
+		JSCCommon.inputMask();
+	},200);
 
 	// var x = window.location.host;
 	// let screenName;
@@ -244,21 +247,21 @@ function eventHandler() {
 		Inputmask(this.getAttribute('data-mask')).mask(this);
 	});
 	//readmore
-	let readMoreConts = document.querySelectorAll('.rm-cont-js');
-	for (let cont of readMoreConts){
-		let btn = cont.querySelector('.rm-btn-js');
-
-		btn.addEventListener('click', function (){
-			this.classList.toggle('active');
-			let hidden = cont.querySelector('.rm-hidden-js');
-			let visiable = cont.querySelector('.rm-visible-js');
-
-			$(hidden).slideToggle(function (){
-				$(this).toggleClass('active');
-			});
-			$(visiable).toggleClass('active');
-		});
-	}
+	// let readMoreConts = document.querySelectorAll('.rm-cont-js');
+	// for (let cont of readMoreConts){
+	// 	let btn = cont.querySelector('.rm-btn-js');
+	//
+	// 	btn.addEventListener('click', function (){
+	// 		this.classList.toggle('active');
+	// 		let hidden = cont.querySelector('.rm-hidden-js');
+	// 		let visiable = cont.querySelector('.rm-visible-js');
+	//
+	// 		$(hidden).slideToggle(function (){
+	// 			$(this).toggleClass('active');
+	// 		});
+	// 		$(visiable).toggleClass('active');
+	// 	});
+	// }
 	document.body.addEventListener('click', function (){
 		let btn = event.target.closest('.rm-btn-js');
 		if (btn){
@@ -274,228 +277,6 @@ function eventHandler() {
 		}
 	});
 	//cart
-	let cart = {
-		cartItems: {},
-		cartWrap: document.querySelector('.cart-items-js'),
-		hiddenInp: document.querySelector('.hidden-inputs-js input[type="hidden"]'),
-		makeProdControlls: function (Proditem){
-			let cart = this;
-			let inp = Proditem.querySelector('.amount-inp-js');
-			let min = Proditem.querySelector('.min-btn-js');
-			let plus = Proditem.querySelector('.plus-btn-js');
-			let add = Proditem.querySelector('.add-btn-js');
-			let radioItems = Proditem.querySelectorAll('.inp-radio-js');
-
-			$(min).click(function (){
-				inp.value = Number(inp.value) - 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-				Proditem.setAttribute('data-amount', inp.value);
-			})
-			$(plus).click(function (){
-				inp.value = Number(inp.value) + 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-				Proditem.setAttribute('data-amount', inp.value);
-			})
-			$(inp).change(function (){
-				!inp.reportValidity() ? inp.value = 1 : '';
-				Proditem.setAttribute('data-amount', inp.value);
-			});
-			$(add).click(cart.addProdItem.bind(this, Proditem));
-
-			//-
-			$(radioItems).change(function (){
-				let checkedRadio;
-				for (let radio of radioItems){
-					if (radio.checked){
-						checkedRadio = radio;
-					}
-				}
-
-				Proditem.setAttribute(`data-checked-radio`, checkedRadio.value);
-			});
-		},
-		addProdItem: function (Proditem){
-			let itemProps = {
-				name: Proditem.getAttribute('data-name'),
-				descr: Proditem.getAttribute('data-descr'),
-				price: Proditem.getAttribute('data-price'),
-				amount: Proditem.getAttribute('data-amount'),
-				radioOptions: Proditem.getAttribute('data-radio-options'),
-				checkedRadio: Proditem.getAttribute('data-checked-radio'),
-			};
-
-			//remove null values
-			Object.keys(itemProps).forEach(key => itemProps[key] === null ? delete itemProps[key] : {});
-
-			this.cartItems[Proditem.getAttribute('id')] = itemProps;
-			this.renderCart();
-		},
-		//cart methods
-		onCartInputChange: function (cartItem){
-			let thisProdItemId = cartItem.getAttribute('data-prod-item-id');
-			let thisProdItem = document.querySelector(`#${thisProdItemId}`);
-			let thisProdItemInp = thisProdItem.querySelector(`.amount-inp-js`);
-			let inp = cartItem.querySelector('.amount-inp-js');
-
-			thisProdItemInp.value = inp.value;
-			thisProdItem.setAttribute('data-amount', inp.value);
-			cart.cartItems[thisProdItemId].amount = inp.value;
-			cart.renderCart();
-		},
-		makeCartControlls: function (cartItem){
-			let cart = this;
-
-			let thisProdItemId = cartItem.getAttribute('data-prod-item-id');
-			let thisProdItem = document.querySelector(`#${thisProdItemId}`);
-			let thisProdItemInp = thisProdItem.querySelector(`.amount-inp-js`);
-
-			let inp = cartItem.querySelector('.amount-inp-js');
-			let min = cartItem.querySelector('.min-btn-js');
-			let plus = cartItem.querySelector('.plus-btn-js');
-			let radioItems = cartItem.querySelectorAll('input[type="radio"]');
-			let removeBtn = cartItem.querySelector('.remove-btn-js');
-
-			$(min).click(function (){
-				inp.value = Number(inp.value) - 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-
-				cart.onCartInputChange(cartItem);
-			})
-			$(plus).click(function (){
-				inp.value = Number(inp.value) + 1;
-				!inp.reportValidity() ? inp.value = 1 : '';
-
-				cart.onCartInputChange(cartItem);
-			})
-			$(inp).change(function (){
-				!inp.reportValidity() ? inp.value = 1 : '';
-
-				cart.onCartInputChange(cartItem);
-			});
-
-			//-
-			$(radioItems).change(function (){
-				let checkedRadio;
-				for (let radio of radioItems){
-					if (radio.checked){
-						checkedRadio = radio;
-					}
-				}
-
-				let thisProdItemRadio = thisProdItem.querySelector(`input[type="radio"][value=${checkedRadio.value}]`);
-				thisProdItemRadio.checked = true;
-				thisProdItem.setAttribute('data-checked-radio', checkedRadio.value);
-				cart.cartItems[thisProdItemId].checkedRadio = checkedRadio.value;
-
-				cart.renderCart();
-			})
-
-			$(removeBtn).click(function (){
-				delete cart.cartItems[thisProdItemId];
-
-				thisProdItemInp.value = 1;
-				thisProdItem.setAttribute('data-amount', 1);
-				cart.renderCart();
-			});
-		},
-		getRadioRow: function (itemObj){
-			if (itemObj.radioOptions){
-				let radioOptionsArr = itemObj.radioOptions.split(',');
-				let radioItems = '';
-				for (let option of radioOptionsArr){
-					radioItems += `<div class="col-auto">
-						<label class="cart-radio">
-							<input 
-								type="radio" 
-								class="invisible"
-								name="cart-radio-group" 
-								value="${option}" 
-								${itemObj.checkedRadio === option && 'checked'}>
-							<span class="circle">
-								${option}
-							</span>
-						</label>
-					</div>`;
-				}
-
-				return `<div class="row gx-2 gy-2 pt-2">
-						${radioItems}
-					</div>`;
-			}
-		},
-		getCardTemplate: function (itemObj, itemId){
-			// cart-item-js[data-prod-item-id]
-			// amount-inp-js
-			// min-btn-js
-			// plus-btn-js
-			// remove-btn-js
-			let template = `
-				<div class="sCart__item cart-item-js" data-prod-item-id="${itemId}">
-					<div class="sCart__i-row row align-items-center gy-3">
-						<div class="col-auto">
-							<div class="sCart__num"></div>
-						</div>
-						<div class="col">
-							<div class="sCart__name">
-								${itemObj.name}
-							</div>
-							${itemObj.descr && `<div class="sCart__descr"> ${itemObj.descr} </div>` || ''}
-							${this.getRadioRow(itemObj) || ''}
-						</div>
-						<div class="col-12 m-0 d-md-none"></div>
-						<div class="col col-md-auto">
-							<div class="sCart__control">
-								<button class="sCart__btn sCart__btn--minus min-btn-js" type="button">
-									-
-								</button>
-								<input 
-									class="sCart__input form-control amount-inp-js"
-									type="number" min="1" max="99"
-									value="${itemObj.amount}" />
-								<button class="sCart__btn sCart__btn--plus plus-btn-js" type="button">
-									+
-								</button>
-							</div>
-						</div>
-						<div class="col-auto">
-							<div class="sCart__price">
-								<b>${Number(itemObj.amount.replace(/\s/g, '')) * Number(itemObj.price.replace(/\s/g, ''))}</b>
-								р.
-							</div>
-						</div>
-						<div class="col-auto">
-							<button class="sCart__remove-btn remove-btn-js" type="button">
-								<!-- <img src="img/svg/cross.svg" alt="">-->
-								×
-							</button>
-						</div>
-					</div>
-				</div>
-			`;
-			return template;
-		},
-		renderCart: function (){
-			this.cartWrap.innerHTML = '';
-			for (let [itemId,itemObj] of Object.entries(this.cartItems)){
-				this.cartWrap.innerHTML += this.getCardTemplate(itemObj, itemId)
-			}
-
-			let cartItems = this.cartWrap.querySelectorAll('.cart-item-js');
-			for (let item of cartItems){
-				this.makeCartControlls(item);
-			}
-			this.renderHiddenInps();
-		},
-		//
-		renderHiddenInps: function (){
-			this.hiddenInp.value = JSON.stringify(this.cartItems);
-		},
-	};
-	//start cart
-	// $('.prod-item--js').each(function (){
-	// 	cart.makeProdControlls(this);
-	// });
-
 	//-
 	let sSocSlider = new Swiper('.sSoc-slider-js', {
 		slidesPerView: 'auto',
